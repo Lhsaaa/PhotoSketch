@@ -1,0 +1,9 @@
+================ Training Loss (Mon May  6 15:09:15 2024) ================
+================ Training Loss (Mon May  6 15:15:37 2024) ================
+================ Training Loss (Mon May  6 15:23:06 2024) ================
+================ Training Loss (Mon May  6 15:32:39 2024) ================
+(epoch: 1, iters: 100, time: 2.812) G_GAN: 0.914 G_L1: 26.082 D_real: 0.545 D_fake: 0.810 
+(epoch: 1, iters: 200, time: 2.814) G_GAN: 1.164 G_L1: 32.669 D_real: 0.521 D_fake: 0.491 
+(epoch: 1, iters: 300, time: 2.755) G_GAN: 1.578 G_L1: 15.814 D_real: 0.777 D_fake: 0.577 
+(epoch: 1, iters: 400, time: 2.738) G_GAN: 1.544 G_L1: 24.301 D_real: 0.515 D_fake: 0.435 
+(epoch: 1, iters: 500, time: 2.824) G_GAN: 2.097 G_L1: 33.849 D_real: 0.786 D_fake: 0.806 
