@@ -7,6 +7,7 @@ from data.image_folder import make_dataset
 from PIL import Image
 from data.rotate_and_crop import rotate_and_crop
 
+
 class Paired1ToNDataset(BaseDataset):
     def initialize(self, opt):
         self.opt = opt
@@ -40,14 +41,14 @@ class Paired1ToNDataset(BaseDataset):
             load_size = self.opt.loadSize
             img = img.resize((load_size, load_size), Image.BICUBIC)
             if self.opt.rotate:
-                rot_deg = 5*random.randint(-3, 3)
+                rot_deg = 5 * random.randint(-3, 3)
                 img = rotate_and_crop(img, rot_deg, True)
             if self.opt.crop:
                 img = transforms.ToTensor()(img)
                 w_offset = random.randint(0, max(0, load_size - fine_size - 1))
                 h_offset = random.randint(0, max(0, load_size - fine_size - 1))
                 img = img[:, h_offset:h_offset + fine_size,
-                          w_offset:w_offset + fine_size]
+                      w_offset:w_offset + fine_size]
             else:
                 img = img.resize((fine_size, fine_size), Image.BICUBIC)
                 img = transforms.ToTensor()(img)
@@ -62,9 +63,9 @@ class Paired1ToNDataset(BaseDataset):
 
         A = transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))(img)
 
-        B = N*[None]
+        B = N * [None]
         for i in range(N):
-            pathB = os.path.join(self.skt_dir, '%s_%02d.png' % (filename, i+1))
+            pathB = os.path.join(self.skt_dir, '%s_%02d.png' % (filename, i + 1))
             img = Image.open(pathB)
             if if_flip:
                 img = img.transpose(Image.FLIP_LEFT_RIGHT)
@@ -76,7 +77,7 @@ class Paired1ToNDataset(BaseDataset):
                 if self.opt.crop:
                     img = transforms.ToTensor()(img)
                     img = img[:, h_offset:h_offset + fine_size,
-                              w_offset:w_offset + fine_size]
+                          w_offset:w_offset + fine_size]
                 else:
                     img.resize((fine_size, fine_size), Image.BICUBIC)
                     img = transforms.ToTensor()(img)
@@ -96,4 +97,3 @@ class Paired1ToNDataset(BaseDataset):
 
     def name(self):
         return 'Paired1ToNDataset'
-

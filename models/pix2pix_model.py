@@ -118,7 +118,7 @@ class Pix2PixModel(BaseModel):
         n = self.real_B.shape[1]
         fake_B_expand = self.fake_B.expand(-1, n, -1, -1)
         L1 = torch.abs(fake_B_expand - self.real_B)
-        L1 = L1.view(-1, n, self.real_B.shape[2]*self.real_B.shape[3])
+        L1 = L1.view(-1, n, self.real_B.shape[2] * self.real_B.shape[3])
         L1 = torch.mean(L1, 2)
         min_L1, min_idx = torch.min(L1, 1)
         self.loss_G_L1 = torch.mean(min_L1) * self.opt.lambda_A
@@ -171,4 +171,3 @@ class Pix2PixModel(BaseModel):
         name, _ = os.path.splitext(os.path.basename(self.image_paths[0]))
         out_path = os.path.join(out_dir, name + self.opt.suffix + '.png')
         image_pil.save(out_path)
-       

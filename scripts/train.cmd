@@ -1,4 +1,4 @@
-@set "dataDir=.\"
+@set "dataDir=."
 
 python train.py ^
     --name default ^
@@ -20,3 +20,4 @@ python train.py ^
     --crop --rotate --color_jitter ^
     --niter 400 ^
     --niter_decay 400 ^
+    --use_cuda 1 ^
