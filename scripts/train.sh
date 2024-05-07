@@ -2,8 +2,8 @@ dataDir=
 
 python train.py \
     --name default \
-    --dataroot ${dataDir}/dataset/ \
-    --checkpoints_dir ${dataDir}/Checkpoints/ \
+    --dataroot ./dataset/ \
+    --checkpoints_dir./Checkpoints/ \
     --model pix2pix \
     --which_direction AtoB \
     --dataset_mode 1_to_n \
