@@ -2,11 +2,11 @@ dataDir=
 
 python test.py \
     --name default \
-    --dataroot ./dataset/ \
+    --dataroot ./PhotoSketch/dataset/ \
     --phase val \
     --how_many 100 \
-    --checkpoints_dir./Checkpoints/ \
-    --results_dir ./TestResults/ \
+    --checkpoints_dir./PhotoSketch/Checkpoints/ \
+    --results_dir ./PhotoSketch/TestResults/ \
     --model pix2pix \
     --which_direction AtoB \
     --dataset_mode 1_to_n \
